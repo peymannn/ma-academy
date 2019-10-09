@@ -1,0 +1,11 @@
+int smallest,i,j;
+            for (i = 0; i < numbers.length; i++) {
+
+                for (j = i+1; j < numbers.length-1; j++) {
+                    smallest = numbers[i];
+                    if (smallest > numbers[j+1]) {
+                        numbers[i] = numbers[j+1 ];
+                        numbers[j+1]=smallest;
+                    }
+                }
+            }
