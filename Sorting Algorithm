@@ -1,11 +1,26 @@
-int smallest,i,j;
-            for (i = 0; i < numbers.length; i++) {
+  public class Main {
+        public static void main(String[] args) {
+            System.out.println(sorting());
+        }
 
-                for (j = i+1; j < numbers.length-1; j++) {
-                    smallest = numbers[i];
-                    if (smallest > numbers[j+1]) {
-                        numbers[i] = numbers[j+1 ];
-                        numbers[j+1]=smallest;
-                    }
-                }
-            }
+            public String sorting() {
+             int smallest,i,j;
+                        for (i = 0; i < numbers.length; i++) {
+
+                            for (j = i+1; j < numbers.length-1; j++) {
+                                smallest = numbers[i];
+                                if (smallest > numbers[j+1]) {
+                                    numbers[i] = numbers[j+1 ];
+                                    numbers[j+1]=smallest;
+                                }
+                            }
+                        }
+
+               String msj = "";
+                        for (int k = 0; k < numbers.length; k++) {
+                            msj = msj + numbers[k] + "\n";
+                        }
+
+               return msj;
+               }
+   }
