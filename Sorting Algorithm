@@ -1,3 +1,4 @@
+int numbers[] = {205, 55, 12, 11, 1, 23, 16};
 int smallest,i,j;
             for (i = 0; i < numbers.length; i++) {
 
