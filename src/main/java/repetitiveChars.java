@@ -2,7 +2,6 @@ public class repetitiveChars {
     public static void main(String[] args) {
         String characters="APLPbCD";
         ArrayCharracter(characters);
-
     }
 
     private static void ArrayCharracter(String characters) {
