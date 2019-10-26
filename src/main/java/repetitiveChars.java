@@ -1,11 +1,11 @@
-public class repetitiveChars {
+public class repetitiveCharsğ {
     public static void main(String[] args) {
         String characters="APLPbCD";
-        ArrayCharracter(characters);
+        ArrayChars(characters);
 
     }
 
-    private static void ArrayCharracter(String characters) {
+    private static void ArrayChars(String characters) {
         String newCharacters="";
         for (int i = 0; i <characters.length() ; i++) {
             newCharacters= characters.replaceAll(characters.charAt(i)+"","" );
