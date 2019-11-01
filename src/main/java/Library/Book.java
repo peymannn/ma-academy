@@ -69,5 +69,9 @@ public class Book {
         {
             this.cost=cost;
         }
+        public String AllDatetoString()
+        {
+            return "Başlık: " + title + "\n " +"Yazar: "+ author +"\n " +"Yıl: "+ year + "\n " +"Yayın Evi:"+ publisher +"\n " +"Fiyat" + cost;
+        }
 
 }
