@@ -2,7 +2,7 @@ package Library;
 import java.util.*;
 
 public class BookController {
-    Service service = new Service();
+   private Service service = new Service();
 
     public String createService(Book book){
         boolean result = service.create(book);
