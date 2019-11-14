@@ -33,16 +33,7 @@ public class BookController {
         return result;
     }
     public List<Book> getAllBook(){return service.getAllBook(); }
-    public  boolean getAllBookList(){
-        try {
-            for (int i = 0; i < getAllBook().size(); i++) {
-                System.out.println( getAllBook().get(i).AllDatatoString());
-            }
-            return true;
-        }catch (Exception ex){
-            return false;
-        }
-    }
+    
 }
 
 
