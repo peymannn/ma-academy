@@ -1,33 +1,32 @@
 package Library;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Service {
     private ArrayList<Book> bookList = new ArrayList<Book>();
 
-    protected boolean create(Book book){
-        if(! bookList.contains(getByBookId(book.getId()))){
-            if(bookList.add(book)){
-                return true;
-            }
+    public int create(Book book){
+        if(!bookList.contains(getByBookId(book.getId()))){
+            bookList.add(book);
+            return book.getId();
         }
-        return false;
+        return 0;
     }
-    protected boolean delete(int bookID){
+    public boolean delete(int bookID){
         if(bookList.contains(getByBookId(bookID))){
-            if( bookList.remove(getByBookId(bookID)) ){
-                return true;
-            }
+           bookList.remove(getByBookId(bookID));
+           return true;
         }
         return false;
     }
-    protected boolean update(Book book){
-        if( delete(book.getId()) && create(book)){
+    public boolean update(Book book){
+        if( delete(book.getId()) && create(book) != 0){
             return true;
         }
         return false;
     }
-    protected Book getByBookId(int bookId){
+    public Book getByBookId(int bookId){
         for (int i = 0; i < bookList.size(); i++) {
             if (bookList.get(i).getId() == bookId) {
                 return bookList.get(i);
@@ -35,7 +34,7 @@ public class Service {
         }
         return null;
     }
-    protected List<Book> getAllBook(){return bookList; }
+    public List<Book> getAllBook(){return bookList; }
 
 }
 

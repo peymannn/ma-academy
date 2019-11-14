@@ -1,39 +1,28 @@
 package Library;
-import java.util.*;
+
+import java.util.List;
 
 public class BookController {
    private Service service = new Service();
 
-    public String createService(Book book){
-        boolean result = service.create(book);
-        if (result == false){
-            return "Error in Create";
-        } else
-            return String.valueOf(result);
+    public int createBook(Book book){
+        int result = service.create(book);
+        return result;
     }
-    public String deleteService(int bookId){
+    public boolean deleteBook(int bookId){
         boolean result = service.delete(bookId);
-        if (result==false){
-           return "Error in Delete";
-        }
-        return String.valueOf(result);
+        return result;
     }
-    public String updateService(Book book){
+    public boolean updateBook(Book book){
         boolean result = service.update(book);
-        if (result == false){
-           return "Error in Update";
-        }
-        return String.valueOf(result);
+        return result;
     }
-    public Book getByBookIdService(int bookId){
+    public Book getByBookIdBook(int bookId){
         Book result= service.getByBookId(bookId);
-        if (result==null){
-         return null;
-        }
         return result;
     }
     public List<Book> getAllBook(){return service.getAllBook(); }
-    
+
 }
 
 
