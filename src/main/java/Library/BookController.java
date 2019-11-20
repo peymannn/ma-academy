@@ -5,23 +5,25 @@ import java.util.List;
 public class BookController {
    private Service service = new Service();
 
-    public int createBook(Book book){
-        int result = service.create(book);
-        return result;
+    public int createBook(Book book) {
+        return service.create(book);
     }
     public boolean deleteBook(int bookId){
-        boolean result = service.delete(bookId);
-        return result;
+        return service.delete(bookId);
     }
     public boolean updateBook(Book book){
-        boolean result = service.update(book);
-        return result;
+        return service.update(book);
     }
-    public Book getByBookIdBook(int bookId){
-        Book result= service.getByBookId(bookId);
-        return result;
+    public Book getByBookIdBook(int bookId) throws Exception {
+      try {
+          return service.getByBookId(bookId);
+      }catch (Exception ex){
+          throw  new Exception(ex.getMessage());
+      }
     }
-    public List<Book> getAllBook(){return service.getAllBook(); }
+    public List<Book> getAllBook(){
+        return service.getAllBook();
+    }
 
 }
 

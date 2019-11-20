@@ -17,7 +17,7 @@ public class Main {
                 System.out.println( controller.getAllBook().get(i).AllDatatoString());
             }
         }catch (Exception ex){
-
+            ex.printStackTrace();
         }
     }
 }
