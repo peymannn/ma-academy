@@ -67,10 +67,7 @@ public class Book {
         }
         public int createId(){
             int newId = ((int)(Math.random() * 100));
-            boolean result = new  Service().getAllBook().contains(new Service().getByBookId(newId));
-            if(result == true){
-                newId=createId();
-            }
+
             return newId;
         }
 }
