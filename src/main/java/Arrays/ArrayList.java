@@ -1,49 +1,56 @@
 package Arrays;
+
+import java.util.Arrays;
+
 public class ArrayList {
 
-    private int arrayListSize = 0;
-    public Object[] numberArray;  //son halde private olacak.Denemeler için array'i public yaptım
+    private int size = 0;
+    private int[] items;
 
     public ArrayList(int initialSize) {
-        if (initialSize > 0) {
-            this.numberArray = new Object[initialSize];
-        } else {
+        if (initialSize > 0)
+            this.items = new int[initialSize];
+        else
             throw new IllegalArgumentException();
-        }
     }
-    public boolean add(Object o) {
-        for (int i = 0; i < numberArray.length; i++) {
-            if(numberArray[i] == null) {
-                numberArray[i] = o;
-                break;
-            }else
-                arrayListSize++;
+    public void add(int item) {
+        if(size == items.length){
+            int[] newArray=new int[size * 2];
+
+            for (int i = 0; i < size; i++)
+                newArray[i]=items[i];
+
+            items=newArray;
         }
-        return true;
+        items[size++]=item;
     }
 
-    public Object[] remove(int index) {
-        if(indexOf(numberArray[index]) != -1){
-            numberArray[index] = null;
-            arrayListSize--;
-            return numberArray;
-        }else
-            throw  new IndexOutOfBoundsException();
+    public void remove(int index) {
+        if(index < 0 || index >= size )
+            throw new IllegalArgumentException();
+
+        for (int i = index; i < size ; i++)
+            items[i] = items[i + 1];
+        size--;
     }
 
     public int size(){
-        return arrayListSize + 1;
+        return size;
     }
 
-    public int indexOf(Object o) {
-        int result = -1;
-        for (int i = 0; i < numberArray.length; i++) {
-            if (numberArray[i] == o) {
-                result = i;
-                break;
-            }
-        }
-        return result;
+    public int indexOf(int item) {
+        for (int i = 0; i < items.length; i++)
+            if (items[i] == item)
+                return i;
+        return -1;
+    }
+    @Override
+    public String toString(){
+        int[] array=new int[size];
+        for (int i = 0; i < size; i++)
+            array[i]=items[i];
+
+        return Arrays.toString(array);
     }
 
 }
