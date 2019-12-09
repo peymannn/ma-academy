@@ -1,7 +1,5 @@
 package Arrays;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -26,7 +24,7 @@ public class Main {
         System.out.println(arrayList2.toString());
         System.out.println(arrayList2.contains(5));
 
-        System.out.println(arrayList.intersection(arrayList2));
+        System.out.println(arrayList.intersect(arrayList2));
 
     }
 

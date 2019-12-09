@@ -15,8 +15,8 @@ public class ArrayList {
     }
     public void add(int item) {
         increaseSize(size);
-        items[size] = item;
-        size++;
+
+        items[size++] = item;
     }
 
     public void remove(int index) {
@@ -25,8 +25,10 @@ public class ArrayList {
 
         for (int i = index; i < size; i++)
             items[i] = items[i + 1];
+
         size--;
     }
+
     public int size(){
         return size;
     }
@@ -35,55 +37,61 @@ public class ArrayList {
         for (int i = 0; i < size; i++)
             if (items[i] == item)
                 return i;
+
         return -1;
     }
 
     public int max(){
         int maxItem = items[0];
-        for (int i = 0; i < size; i++) {
+
+        for(int i = 1; i < size; i++)
             if(maxItem < items[i])
                 maxItem = items[i];
-        }
+
         return maxItem;
     }
 
     public int[] reverse(){
-        int temp;
-        for (int i = 0; i < size / 2; i++) {
-            temp = items[i];
-            items[i] = items[size - 1 - i];
-            items[size - 1 - i] = temp;
-        }
-        return items;
+        int[] reverseList = new int [size];
+
+        int index = 0;
+        for(int i = size -1;  i >= 0; i--)
+            reverseList[index++] = items[i];
+
+        return reverseList;
     }
 
-    public ArrayList intersection(ArrayList arr){
+    public ArrayList intersect(ArrayList list){
         int counter = 0;
-        ArrayList newArrayList = new ArrayList(counter+1);
-        for (int i = 0; i < items.length; i++)
-                if(arr.contains(items[i]))
-                    newArrayList.insertAt(items[i], counter++);
-        return newArrayList;
+        ArrayList commonArray = new ArrayList(counter+1);
+
+        for(int item: items)
+            if(list.contains(item))
+                commonArray.add(item);
+
+        return commonArray;
     }
 
     public boolean contains(int item) {
-        for (int i = 0; i < items.length; i++)
-            if (items[i] == item)
-                return true;
-        return false;
+       if(indexOf(item) != -1)
+           return true;
+
+       return false;
     }
 
     public void insertAt(int item, int index){
         increaseSize(index);
-        items[index] = item;       
+        items[index] = item;
         size = items.length;
     }
 
-    private void increaseSize(int index) {
-        if(index >= items.length){
-            int[] newArray=new int[ index + 1 ];
+    private void increaseSize(int size) {
+        if(size >= items.length){
+            int[] newArray = new int[size + 1];
+
             for (int i = 0; i < items.length; i++)
                 newArray[i] = items[i];
+
             items = newArray;
         }
     }
